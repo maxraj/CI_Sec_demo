@@ -5,10 +5,11 @@ services:
   - docker
  
 before_install:
+- docker stop gruyere || true
 - chmod +x ./scripts/travis-config.sh
 - docker pull karthequian/gruyere:latest
 - docker pull gauntlt/gauntlt
-- docker run --rm -d -p 8008:8008 karthequian/gruyere:latest
+- docker run --rm -d -p 8008:8008 --name gruyere karthequian/gruyere:latest
 - docker ps -a
 - ./scripts/travis-config.sh
 
