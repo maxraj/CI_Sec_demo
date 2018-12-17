@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Init Env') {
             steps {
+                
                 checkout scm
                 
                 sh 'echo test setup started'
