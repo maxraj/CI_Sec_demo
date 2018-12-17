@@ -9,7 +9,7 @@ pipeline {
                 
                 sh 'echo test setup started'
                 sh 'docker stop gruyere || true'
-                sh 'docker ps -a'
+                sh 'sudo docker ps -a'
                 sh 'docker pull gauntlt/gauntlt'
                 sh 'docker pull karthequian/gruyere:latest'
                 sh 'docker run --rm -d -p 8008:8008 --name gruyere karthequian/gruyere:latest'
