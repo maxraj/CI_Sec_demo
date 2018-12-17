@@ -7,19 +7,19 @@ pipeline {
                 checkout scm
                 
                 sh 'echo test setup started'
-                sh 'docker stop gruyere || true'
-                sh 'docker pull karthequian/gruyere:latest'
-                sh 'docker pull gauntlt/gauntlt'
-                sh 'docker run --rm -d -p 8008:8008 --name gruyere karthequian/gruyere:latest'
-                sh 'docker ps -a'
+                sh 'sudo docker stop gruyere || true'
+                sh 'sudo docker pull karthequian/gruyere:latest'
+                sh 'sudo docker pull gauntlt/gauntlt'
+                sh 'sudo docker run --rm -d -p 8008:8008 --name gruyere karthequian/gruyere:latest'
+                sh 'sudo docker ps -a'
             }
         }
         stage('Test for security issues') {
             steps {
-                sh 'chmod +x ./scripts/ip-config.sh'
-                sh './scripts/ip-config.sh'
+                sh 'sudo chmod +x ./scripts/ip-config.sh'
+                sh 'sudo ./scripts/ip-config.sh'
                 sh 'cat ./config/cucumber.yml'
-                sh 'docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/xss.attack'
+                sh 'sudo docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/xss.attack'
             }
         }
     }
