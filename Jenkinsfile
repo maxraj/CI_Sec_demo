@@ -1,9 +1,6 @@
 pipeline {
-    agent {
-        node {
-            label 'docker'
-        }
-    }
+    agent any
+    
     stages {
         stage('Init Env') {
             steps {
