@@ -16,4 +16,3 @@ before_install:
 script:
   - cat ./config/cucumber.yml
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/xss.attack
-
