@@ -13,6 +13,7 @@ pipeline {
                 sh 'docker pull karthequian/gruyere:latest'
                 sh 'docker run --rm -d -p 8008:8008 --name gruyere karthequian/gruyere:latest'
                 sh 'docker ps -a'
+                
             }
         }
         stage('Test for security issues') {
