@@ -1,4 +1,4 @@
-@slow
+@reallyslow
 Feature: Look for cross site scripting (xss) using arachni against our site
 
 Background:
