@@ -7,7 +7,7 @@ pipeline {
                 
                 checkout scm
                 
-                sh 'echo test setup has started'
+                sh 'echo test setup started'
                 sh 'docker stop gruyere || true'
                 sh 'docker pull gauntlt/gauntlt'
                 sh 'docker pull karthequian/gruyere:latest'
