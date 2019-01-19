@@ -17,3 +17,7 @@ script:
   - cat ./config/cucumber.yml
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/xss.attack
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/allowed_methods.attack
+  - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/form_upload.attack
+  - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/insecure_cookies.attack
+  - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/mixed_resource.attack
+  - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/session_fixation.attack
