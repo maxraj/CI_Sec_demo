@@ -10,7 +10,7 @@ Background:
      | name      | environment_variable_name   |
      | hostname  | TARGET_HOSTNAME             |
      
-Scenario: Do a full xss check and verify no issues are found on the login page
+Scenario: Do a check for unallowed methods and verify no issues are found on the login page
   When I launch an "arachni" attack with:
   """
   arachni --checks=allowed_methods --scope-directory-depth-limit=1 http://<hostname>:8008/login
