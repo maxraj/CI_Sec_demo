@@ -25,6 +25,7 @@ pipeline {
                 sh 'docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/allowed_methods.attack'
                 sh 'docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/insecure_cookies.attack'
                 sh 'docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/session_fixation.attack'
+                sh 'docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/mixed_resource.attack'
             }
         }
     }
