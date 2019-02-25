@@ -16,3 +16,4 @@ Scenario: Do a check on session cookie and verify no issues are found on the log
   arachni --checks=session_fixation --scope-directory-depth-limit=1 http://<hostname>:8008/login
   """
   Then the output should contain "0 issues were detected."
+  
