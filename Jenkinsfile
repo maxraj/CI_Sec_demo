@@ -23,7 +23,7 @@ pipeline {
                 sh 'cat ./config/cucumber.yml'
                 sh 'docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/xss.attack'
                 sh 'docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/session_fixation.attack'
-                //sh './Tools/SC/bandit.exe ./Pythoncode/sample.py'
+                //sh './Tools/SC/bandit.exe ./PythonCode/Sample.py'
             }
         }
     }
