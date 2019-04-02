@@ -13,6 +13,7 @@ before_install:
 - docker ps -a
 - chmod +x ./scripts/ip-config.sh
 - ./scripts/ip-config.sh
+- chmod 777 ./PythonCode/Sample.py
 
 script:
   - cat ./config/cucumber.yml
