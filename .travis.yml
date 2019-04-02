@@ -14,12 +14,10 @@ before_install:
 - chmod +x ./scripts/ip-config.sh
 - ./scripts/ip-config.sh
 - chmod 777 ./PythonCode
-- SRC_DIRECTORY="$(pwd)/../PythonCode"
-- REPORT_DIRECTORY="$SRC_DIRECTORY/report"
 
 script:
   - cat ./config/cucumber.yml
-  - docker run -t --rm secfigo/bandit --volume "$SRC_DIRECTORY" --volume "$REPORT_DIRECTORY"
+  - docker run -t --rm secfigo/bandit ./PythonCode/
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/xss.attack
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/mixed_resource.attack
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/form_upload.attack
