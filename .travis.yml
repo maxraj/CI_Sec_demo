@@ -8,6 +8,7 @@ before_install:
 - docker stop gruyere || true
 - docker pull karthequian/gruyere:latest
 - docker pull gauntlt/gauntlt
+- docker pull secfigo/bandit
 - docker run --rm -d -p 8008:8008 --name gruyere karthequian/gruyere:latest
 - docker ps -a
 - chmod +x ./scripts/ip-config.sh
@@ -15,6 +16,7 @@ before_install:
 
 script:
   - cat ./config/cucumber.yml
+  - docker run -t --rm -v $(pwd):/working -w /working secfigo/bandit -r ./PythonCode/Sample.py
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/xss.attack
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/mixed_resource.attack
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/form_upload.attack
