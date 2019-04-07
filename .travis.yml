@@ -21,4 +21,4 @@ script:
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/xss.attack
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/mixed_resource.attack
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/form_upload.attack
-  - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/SQL_Injection.attack
+#  - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/SQL_Injection.attack
