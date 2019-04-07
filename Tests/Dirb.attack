@@ -9,6 +9,8 @@ Scenario: Use dirb to scan a website for basic security requirements.
      | name                | environment_variable_name             |
      | hostname            | TARGET_HOSTNAME                       |
      | dirb_wordlists_path | Overwritten by $DIRB_WORDLISTS        |
+  And the following profile:
+     | name                | value                                 |
      | wordlist            | vulns/tests.txt                       |
   When I launch a "dirb" attack with:
   """
