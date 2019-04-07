@@ -5,8 +5,8 @@ Feature: Run sqlmap against our target and test any web forms on the page
 Scenario: Identify SQL injection vulnerabilities on the login page
   Given "sqlmap" is installed
   And the following profile:
-    | name        | environment_variable_name   |
-    | hostname    | TARGET_HOSTNAME             |
+    | name        | value               |
+    | hostname    | 172.17.0.2          |
   When I launch a "sqlmap" attack with:
   """
   python <sqlmap_path> -u http://<hostname>:8008/login -v 1 --batch --forms --dbms sqlite -p uid,pw
