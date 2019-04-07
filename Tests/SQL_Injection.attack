@@ -6,10 +6,10 @@ Scenario: Identify SQL injection vulnerabilities on the login page
   Given "sqlmap" is installed
   And the following profile:
     | name        | environment_variable_name   |
-    | target_url  | TARGET_HOSTNAME             |
+    | hostname    | TARGET_HOSTNAME             |
   When I launch a "sqlmap" attack with:
   """
-  python <sqlmap_path> -u http://<target_url>:8008/login -v 1 --batch --forms --dbms sqlite -p uid,pw
+  python <sqlmap_path> -u http://<hostname>:8008/login -v 1 --batch --forms --dbms sqlite -p uid,pw
   """
   Then the output should contain:
   """
