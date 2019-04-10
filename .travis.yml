@@ -18,7 +18,7 @@ before_install:
 script:
   - cat ./config/cucumber.yml
 #  - docker run -t --rm secfigo/bandit ./PythonCode/
-  - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/xss.attack --format=json --output=./Tests/output/sample.json
+  - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/xss.attack --format=json --outfile=./Tests/output/sample.json
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/mixed_resource.attack
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/form_upload.attack
 #  - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/SQL_Injection.attack
