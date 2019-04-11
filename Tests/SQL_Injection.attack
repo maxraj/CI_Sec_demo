@@ -15,4 +15,3 @@ Scenario: Identify SQL injection vulnerabilities on the login page
   """
   all tested parameters do not appear to be injectable
   """
-
