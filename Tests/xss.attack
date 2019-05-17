@@ -12,5 +12,5 @@ Scenario: Do a full xss check and verify no issues are found on the login page
   """
   arachni --checks=xss* --scope-page-limit=1 http://<hostname>:8008/login
   """
-  Then the output should contain "2 issues were detected."
+  Then the output should contain "0 issues were detected."
   
