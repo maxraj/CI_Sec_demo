@@ -15,7 +15,6 @@ before_script:
 - docker ps -a
 - chmod +x ./scripts/ip-config.sh
 - ./scripts/ip-config.sh
-#- chmod 777 ./PythonCode
 
 script:
   - cat ./config/cucumber.yml
@@ -23,6 +22,6 @@ script:
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/xss.attack
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/mixed_resource.attack
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/form_upload.attack
-#  - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/SQL_Injection.attack
+  - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/SQL_Injection.attack
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/Dirb.attack
  
