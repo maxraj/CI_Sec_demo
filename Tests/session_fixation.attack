@@ -1,0 +1,19 @@
+# The parameters used in the command should be appropriately replaced
+# 'environment_variable_name' is used along with cucumber.yml file
+
+@reallyslow
+Feature: Check whether or not the session cookie can be set to an arbitrary value
+
+Background:
+  Given "arachni" is installed
+  And the following environment variables:
+     | name      | environment_variable_name   |
+     | hostname  | TARGET_HOSTNAME             |
+     
+Scenario: Do a check on session cookie and verify no issues are found on the login page
+  When I launch an "arachni" attack with:
+  """
+  arachni --checks=session_fixation --scope-directory-depth-limit=1 http://<hostname>:8008/login
+  """
+  Then the output should contain "0 issues were detected."
+  
