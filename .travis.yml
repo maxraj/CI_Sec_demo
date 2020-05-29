@@ -8,7 +8,6 @@ before_install:
 - docker stop gruyere || true
 - docker pull karthequian/gruyere:latest
 - docker pull gauntlt/gauntlt
-#- docker pull secfigo/bandit
 
 before_script:
 - docker run --rm -d -p 8008:8008 --name gruyere karthequian/gruyere:latest
@@ -17,18 +16,17 @@ before_script:
 - ./scripts/ip-config.sh
 
 script:
-  - cat ./config/cucumber.yml
-#  - docker run -t --rm secfigo/bandit ./PythonCode/
+#  - cat ./config/cucumber.yml
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/xss.attack
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/mixed_resource.attack
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/form_upload.attack
 # takes around 4 mins  - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/SQL_Injection.attack
   - docker run -t --rm -v $(pwd):/working -w /working gauntlt/gauntlt ./Tests/Dirb.attack
  
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $TRAVIS_TOKEN
-  keep_history: true
-  on:
-    branch: master
+#deploy:
+#  provider: pages
+#  skip_cleanup: true
+#  github_token: $TRAVIS_TOKEN
+#  keep_history: true
+#  on:
+#    branch: master
